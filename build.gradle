@@ -55,7 +55,7 @@ def renjinVersion;
 if(System.getenv("RENJIN_RELEASE")) {
     renjinVersion = System.getenv("RENJIN_RELEASE")
 } else if(System.getenv("BUILD_NUMBER")) {
-    renjinVersion = "3.5-beta${System.getenv("BUILD_NUMBER")}"
+    renjinVersion = "3.5-FAW${System.getenv("BUILD_NUMBER")}"
 } else {
     renjinVersion = "3.5-dev"
 }
