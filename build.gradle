@@ -51,14 +51,7 @@ subprojects {
 
 
 ext.majorVersion = "3.5"
-def renjinVersion;
-if(System.getenv("RENJIN_RELEASE")) {
-    renjinVersion = System.getenv("RENJIN_RELEASE")
-} else if(System.getenv("BUILD_NUMBER")) {
-    renjinVersion = "3.5-FAW${System.getenv("BUILD_NUMBER")}"
-} else {
-    renjinVersion = "3.5-dev"
-}
+def renjinVersion = "3.5-" + getDate();
 
 allprojects {
   project.version = renjinVersion
@@ -80,4 +73,8 @@ subprojects {
     }
     
     clean.dependsOn cleanMaven
+}
+
+def getDate() {
+    return new Date().format('yyyyMMdd')
 }
